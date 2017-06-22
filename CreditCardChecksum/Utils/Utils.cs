@@ -52,11 +52,21 @@ namespace CreditCardChecksum.Utils
             return string.Join("", extractedDigits);
         }
 
+        /// <summary>
+        /// Determine whether a specified character digit is odd
+        /// </summary>
+        /// <param name="x">Digit</param>
+        /// <returns>Whether a specified character digit is odd</returns>
         private static bool DigitIsOdd(char x)
         {
             return Convert.ToInt32(x) % 2 != 0;
         }
 
+        /// <summary>
+        /// Determine whether a specified character digit is even
+        /// </summary>
+        /// <param name="x">Digit</param>
+        /// <returns>Whether a specified character digit is even</returns>
         private static bool DigitIsEven(char x)
         {
             return Convert.ToInt32(x) % 2 == 0;
