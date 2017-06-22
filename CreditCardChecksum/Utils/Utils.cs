@@ -9,10 +9,26 @@ namespace CreditCardChecksum.Utils
     /// </summary>
     public class Utils
     {
+        /// <summary>
+        /// Digit extraction methods
+        /// </summary>
         public enum ExtractMethods
         {
             Odd,
             Even
+        }
+
+        /// <summary>
+        /// Convert a string into a list of integers
+        /// </summary>
+        /// <param name="inputString">A string to turn into integers</param>
+        /// <returns>A list of integers</returns>
+        public List<int> ConvertStringIntoListofIntegers(string inputString)
+        {
+            if (inputString == null) return new List<int>();         // TODO throw exception because we weren't expecting a null value?
+
+            var enumerable = inputString.ToArray();
+            return enumerable.Select(character => (int)char.GetNumericValue(character)).ToList();
         }
 
         /// <summary>

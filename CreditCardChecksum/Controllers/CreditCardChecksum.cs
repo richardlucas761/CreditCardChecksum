@@ -14,6 +14,9 @@ namespace CreditCardChecksum.Controllers
         /// <returns></returns>
         public string Get(string creditCardNumber)
         {
+            var oddDigits = Utils.Utils.GetDigits(creditCardNumber, Utils.Utils.ExtractMethods.Odd);
+            var evenDigits = Utils.Utils.GetDigits(creditCardNumber, Utils.Utils.ExtractMethods.Even);
+
             return "value";
         }
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CreditCardChecksum.Tests.Controllers
 {
@@ -185,6 +186,70 @@ namespace CreditCardChecksum.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("F", result);
+        }
+
+        #endregion
+
+        #region ConvertStringIntoListOfIntegersTests
+
+        [TestMethod]
+        public void ConvertStringIntoListOfIntegersSingleDigit()
+        {
+            // Arrange
+            var utils = new Utils.Utils();
+            var expected = new List<int> { 0 };
+
+            // Act
+            var result = utils.ConvertStringIntoListofIntegers("0");
+
+            // Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void ConvertStringIntoListOfIntegersThreeDigits()
+        {
+            // Arrange
+            var utils = new Utils.Utils();
+            var expected = new List<int> { 5, 7, 4 };
+
+            // Act
+            var result = utils.ConvertStringIntoListofIntegers("574");
+
+            // Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void ConvertStringIntoListOfIntegersNull()
+        {
+            // Arrange
+            var utils = new Utils.Utils();
+            var expected = new List<int>();
+
+            // Act
+            var result = utils.ConvertStringIntoListofIntegers(null);
+
+            // Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void ConvertStringIntoListOfIntegersEmptyString()
+        {
+            // Arrange
+            var utils = new Utils.Utils();
+            var expected = new List<int>();
+
+            // Act
+            var result = utils.ConvertStringIntoListofIntegers("");
+
+            // Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AreEqual(result, expected);
         }
 
         #endregion
