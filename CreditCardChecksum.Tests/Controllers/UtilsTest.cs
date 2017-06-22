@@ -11,11 +11,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsThreeCharacters()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits("ABC");
+            var result = Utils.Utils.ReverseDigits("ABC");
 
             // Assert
             Assert.IsNotNull(result);
@@ -25,11 +22,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsOneCharacter()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits("Z");
+            var result = Utils.Utils.ReverseDigits("Z");
 
             // Assert
             Assert.IsNotNull(result);
@@ -39,11 +33,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsOneDigit()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits("7");
+            var result = Utils.Utils.ReverseDigits("7");
 
             // Assert
             Assert.IsNotNull(result);
@@ -53,11 +44,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsThreeDigits()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits("123");
+            var result = Utils.Utils.ReverseDigits("123");
 
             // Assert
             Assert.IsNotNull(result);
@@ -67,11 +55,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsEmptyString()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits("");
+            var result = Utils.Utils.ReverseDigits("");
 
             // Assert
             Assert.IsNotNull(result);
@@ -81,11 +66,8 @@ namespace CreditCardChecksum.Tests.Controllers
         [TestMethod]
         public void ReverseDigitsNull()
         {
-            // Arrange
-            var utils = new Utils.Utils();
-
             // Act
-            var result = utils.ReverseDigits(null);
+            var result = Utils.Utils.ReverseDigits(null);
 
             // Assert
             Assert.IsNotNull(result);
@@ -122,11 +104,22 @@ namespace CreditCardChecksum.Tests.Controllers
         public void EvenDigitsThreeDigits()
         {
             // Act
-            var result = Utils.Utils.GetDigits("ABC", Utils.Utils.ExtractMethods.Even);
+            var result = Utils.Utils.GetDigits("355", Utils.Utils.ExtractMethods.Even);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("B", result);
+            Assert.AreEqual("5", result);
+        }
+
+        [TestMethod]
+        public void EvenDigitsSixDigits()
+        {
+            // Act
+            var result = Utils.Utils.GetDigits("787878", Utils.Utils.ExtractMethods.Even);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("888", result);
         }
 
         [TestMethod]
@@ -170,22 +163,22 @@ namespace CreditCardChecksum.Tests.Controllers
         public void OddDigitsThreeDigits()
         {
             // Act
-            var result = Utils.Utils.GetDigits("ABC", Utils.Utils.ExtractMethods.Odd);
+            var result = Utils.Utils.GetDigits("123", Utils.Utils.ExtractMethods.Odd);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("AC", result);
+            Assert.AreEqual("13", result);
         }
 
         [TestMethod]
         public void OddDigitsOneDigit()
         {
             // Act
-            var result = Utils.Utils.GetDigits("F", Utils.Utils.ExtractMethods.Odd);
+            var result = Utils.Utils.GetDigits("8", Utils.Utils.ExtractMethods.Odd);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("F", result);
+            Assert.AreEqual("8", result);
         }
 
         #endregion
@@ -196,11 +189,10 @@ namespace CreditCardChecksum.Tests.Controllers
         public void ConvertStringIntoListOfIntegersSingleDigit()
         {
             // Arrange
-            var utils = new Utils.Utils();
             var expected = new List<int> { 0 };
 
             // Act
-            var result = utils.ConvertStringIntoListofIntegers("0");
+            var result = Utils.Utils.ConvertStringIntoListofIntegers("0");
 
             // Assert
             Assert.IsNotNull(result);
@@ -211,11 +203,10 @@ namespace CreditCardChecksum.Tests.Controllers
         public void ConvertStringIntoListOfIntegersThreeDigits()
         {
             // Arrange
-            var utils = new Utils.Utils();
             var expected = new List<int> { 5, 7, 4 };
 
             // Act
-            var result = utils.ConvertStringIntoListofIntegers("574");
+            var result = Utils.Utils.ConvertStringIntoListofIntegers("574");
 
             // Assert
             Assert.IsNotNull(result);
@@ -226,11 +217,10 @@ namespace CreditCardChecksum.Tests.Controllers
         public void ConvertStringIntoListOfIntegersNull()
         {
             // Arrange
-            var utils = new Utils.Utils();
             var expected = new List<int>();
 
             // Act
-            var result = utils.ConvertStringIntoListofIntegers(null);
+            var result = Utils.Utils.ConvertStringIntoListofIntegers(null);
 
             // Assert
             Assert.IsNotNull(result);
@@ -241,11 +231,10 @@ namespace CreditCardChecksum.Tests.Controllers
         public void ConvertStringIntoListOfIntegersEmptyString()
         {
             // Arrange
-            var utils = new Utils.Utils();
             var expected = new List<int>();
 
             // Act
-            var result = utils.ConvertStringIntoListofIntegers("");
+            var result = Utils.Utils.ConvertStringIntoListofIntegers("");
 
             // Assert
             Assert.IsNotNull(result);
